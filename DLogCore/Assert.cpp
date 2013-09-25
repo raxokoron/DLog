@@ -4,7 +4,7 @@ void __ASSERT__(bool expr_value, const char* expression, int line, const char* f
 {
 	if(!expr_value)
 	{
-		DLoggerProxy(line, func_name, Severity::ASSERT) << "Assertion " << expression << " failed;";
+		DLogger(line, func_name, Severity::ASSERT) << "Assertion " << expression << " failed;";
 		exit(0);
 	}
 }

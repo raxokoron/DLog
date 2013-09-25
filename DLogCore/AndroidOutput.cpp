@@ -1,4 +1,5 @@
 #include "../DLog.h"
+#include "DLogInitializer.h"
 
 // Not tested!
 #ifdef ANDROID
@@ -26,23 +27,14 @@ static std::string GeneratePrefix(const char* functionName, unsigned int line)
 	return prefix;
 }
 
-static void OutputAndroid(Severity severity, const char* functionName, unsigned int line, const char* msg)
+static void AndroidOutputFunction(Severity severity, const char* functionName, unsigned int line, const char* msg)
 {
 	std::string prefix = GeneratePrefix(message.prettyFunctionName, message.line);
 	int sev = static_cast<int>(severity) + ANDROID_LOG_INFO;
 	__android_log_write(sev, prefix.c_str(), msg);
 }
 
-class AndroidInitializer
-{
-public:
-	AndroidInitializer()
-	{
-		DLoggerImpl::setDefaultOutputFunction(OutputAndroid);
-	}
-};
-
-static AndroidInitializer init;
+static DLogInitializer init(AndroidOutputFunction);
 
 
 #endif

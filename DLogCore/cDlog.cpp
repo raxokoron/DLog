@@ -9,7 +9,7 @@ void cDLogger(int line, const char* prettyFunction, Severity severity, const cha
 {
 	va_list args;
 	va_start(args, format);
-	DLoggerImpl d(line, prettyFunction, severity);
+	DLogger d(line, prettyFunction, severity);
 	d.print(format, args);
 	va_end(args);
 }
