@@ -97,7 +97,7 @@ private:
 #define DLOGF DLOG_STREAM_TYPE(Severity::FATAL)
 #define DLOGA DLOG_STREAM_TYPE(Severity::ASSERT)
 
-#define NAMED(__var__) ' ' << #__var__ ": " << (__var__) << ' '
+#define NAMED(__var__) " " #__var__ ": " << (__var__) << ' '
 #define QUOTE(__var__) '\'' << (__var__) << '\''
 #define DQUOTE(__var__) "\"" << (__var__) << "\""
 
