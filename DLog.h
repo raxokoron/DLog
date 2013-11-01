@@ -58,7 +58,7 @@ public:
 		return *this;
 	}
 	template<typename T>
-	DLogger& operator<<(T t)
+	DLogger& operator<<(T&& t)
 	{
 		return ::operator<<(*this, t);
 	}
